@@ -1,0 +1,139 @@
+@import './assets/fonts/iconfont.css';
+
+@tailwind base;
+@tailwind utilities;
+
+#app {
+  background-color: #eeedf3;
+}
+
+@font-face {
+  font-family: 'Calibre';
+  src: url('./assets/fonts/Calibre-Medium-Custom.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Calibre';
+  src: url('./assets/fonts/Calibre-Semibold-Custom.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+.mono {
+  font-size: 44px;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: -1px;
+  font-weight: 700;
+  line-height: 1.1em;
+}
+
+h1 {
+  @apply text-2xl;
+  line-height: 1.3em;
+}
+
+h2 {
+  @apply text-xl;
+  line-height: 1.2em;
+}
+
+h3 {
+  @apply text-lg;
+}
+
+h4 {
+  @apply text-md;
+}
+
+h5 {
+  @apply text-sm
+}
+
+p {
+  @apply text-lg pb-2;
+}
+
+* {
+  outline: none !important;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--heading-color);
+  font-weight: 600;
+}
+
+a,
+.a {
+  color: var(--link-color);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#app {
+  height: 100%;
+}
+
+::placeholder {
+  color: var(--text-color) !important;
+  opacity: 0.4 !important;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 16px;
+}
+
+.notification {
+  color: white !important;
+}
+
+.x-block {
+  @apply block border-y border-x-0 sm:border-x sm:rounded-lg;
+}
+
+// Shot UI kit
+
+.s-input {
+  height: 48px;
+  @apply text-skin-heading focus-within:border-primary block px-3 w-full border;
+}
+
+.s-label {
+  letter-spacing: 1px;
+  @apply block text-gray-500 text-sm uppercase;
+}
+
+.lazy-loading {
+  @apply bg-skin-text animate-pulse-fast;
+}
+
+// V
+
+.v-button {
+  @apply block px-3 w-full;
+  text-transform: uppercase;
+  outline: none;
+  height: 48px;
+  font-size: 17px;
+  letter-spacing: 1px;
+  color: white;
+  background-color: #7144FF;
+
+  &:disabled {
+    @apply bg-gray-300;
+    color: white !important;
+    cursor: not-allowed;
+  }
+}
