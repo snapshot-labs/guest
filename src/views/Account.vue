@@ -54,7 +54,7 @@ parseCall(req).then(request => {
     <form
       v-if="!logged"
       @submit.prevent="connect(account, uri)"
-      class="border p-4 max-w-md"
+      class="x-block"
     >
       <div class="mb-3">
         Open a web3 app in a new tab like
@@ -71,7 +71,7 @@ parseCall(req).then(request => {
         Connect
       </UiButton>
     </form>
-    <div v-if="requests.length > 0" class="border p-4 max-w-md">
+    <div v-if="requests.length > 0" class="x-block">
       <h4 class="rounded-lg mb-3">Transaction request(s)</h4>
       <div v-for="(request, i) in requests" :key="i" class="mb-3">
         <div v-for="(call, x) in request" :key="x">

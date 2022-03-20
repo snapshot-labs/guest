@@ -99,8 +99,24 @@ a,
   color: white !important;
 }
 
+.border {
+  border-image: url('@/assets/border.png') 30 / 19px round;
+}
+
+.border-b {
+  border-image: url('@/assets/border-b.png') 30 / 19px round;
+}
+
+.border-r {
+  border-image: url('@/assets/border-r.png') 30 / 19px round;
+}
+
+.border-p {
+  border-image: url('@/assets/border-p.png') 30 / 19px round;
+}
+
 .x-block {
-  @apply block border-y border-x-0 sm:border-x sm:rounded-lg;
+  @apply block border p-4 max-w-md bg-white;
 }
 
 // Shot UI kit
@@ -108,6 +124,10 @@ a,
 .s-input {
   height: 48px;
   @apply text-skin-heading focus-within:border-primary block px-3 w-full border;
+
+  &:focus {
+    @apply border-p;
+  }
 }
 
 .s-label {

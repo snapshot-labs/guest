@@ -9,6 +9,6 @@
         <Icon name="emoji" :size="28" />
       </div>
     </router-link>
-    <div class="fixed border-r top-[32px] h-[32px] left-[63px]" />
+    <div class="fixed border-r w-[32px] top-[32px] h-[32px] left-[32px]" />
   </div>
 </template>

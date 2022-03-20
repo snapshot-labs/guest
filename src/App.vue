@@ -3,7 +3,7 @@
 	  <div>
 		  <Sidebar/>
 		  <Topnav/>
-		  <router-view :key="$route.path" class="p-6 ml-[64px] pt-[112px]" />
+		  <router-view :key="$route.path" class="p-6 sm:ml-[64px] pt-[112px]" />
 	  </div>
   </div>
 </template>

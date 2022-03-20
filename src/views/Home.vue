@@ -20,12 +20,12 @@ const suggestions = ['vitalik.eth', 'samuv.eth', 'thanku.eth'];
 <template>
   <div class="space-y-4">
     <div>
-      <h2 class="mb-2">Connect to web3 apps with any wallet</h2>
+      <h2 class="mb-2">Connect to web3 apps with any address</h2>
       <p class="mb-2">
         Guest make it easy to connect to a web3 app with a read only account.
       </p>
     </div>
-    <form @submit.prevent="handleSubmit" class="border p-4 max-w-md">
+    <form @submit.prevent="handleSubmit" class="x-block">
       <div class="mb-3">To get started type an address or an ENS name:</div>
       <SIString
         v-model="account"
@@ -33,7 +33,7 @@ const suggestions = ['vitalik.eth', 'samuv.eth', 'thanku.eth'];
       />
       <UiButton type="submit" class="w-full">Next</UiButton>
     </form>
-    <div class="border p-4 max-w-md">
+    <div class="x-block">
       <div class="mb-3">Or log in as</div>
       <router-link
         :to="{ name: 'account', params: { account: suggestion } }"
