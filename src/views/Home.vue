@@ -14,7 +14,12 @@ function handleSubmit() {
   });
 }
 
-const suggestions = ['vitalik.eth', 'samuv.eth', 'thanku.eth'];
+const suggestions = [
+  'vitalik.eth',
+  'uniswap.eth',
+  'cdixon.eth',
+  'benahorowitz.eth'
+];
 </script>
 
 <template>
