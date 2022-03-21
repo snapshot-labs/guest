@@ -58,8 +58,8 @@ parseCall(req).then(request => {
     >
       <div class="mb-3">
         Open a web3 app in a new tab like
-        <a href="https://snapshot.org" target="_blank" class="underline"
-          >Snapshot</a
+        <a href="https://app.uniswap.org" target="_blank" class="underline"
+          >Uniswap</a
         >
         and log in using WalletConnect, then paste the connection link below:
       </div>

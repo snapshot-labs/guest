@@ -18,7 +18,7 @@ const suggestions = [
   'vitalik.eth',
   'uniswap.eth',
   'cdixon.eth',
-  'benahorowitz.eth'
+  'parishilton.eth'
 ];
 </script>
 
@@ -50,5 +50,6 @@ const suggestions = [
         <div class="mt-1">{{ suggestion }}</div>
       </router-link>
     </div>
+	  <Footer/>
   </div>
 </template>
