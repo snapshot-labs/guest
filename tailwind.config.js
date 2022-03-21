@@ -50,7 +50,7 @@ module.exports = {
       lg: ['22px'],
       md: ['20px'],
       base: ['20px'],
-      sm: ['16px'],
+      sm: ['18px'],
       xs: ['13px']
     }
   }

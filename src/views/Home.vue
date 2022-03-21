@@ -26,8 +26,10 @@ const suggestions = [
   <div class="space-y-4">
     <div>
       <h2 class="mb-2">Connect to web3 apps with any address</h2>
-      <p class="mb-2">
-        Guest make it easy to connect to a web3 app with a read only account.
+      <p class="mb-2 max-w-2xl">
+        Guest make it easy to connect to a web3 app with an address of your
+        choice. The connection is read only, transaction requests are displayed
+        and can be used to populate execution on Snapshot.
       </p>
     </div>
     <form @submit.prevent="handleSubmit" class="x-block">
@@ -50,6 +52,6 @@ const suggestions = [
         <div class="mt-1">{{ suggestion }}</div>
       </router-link>
     </div>
-	  <Footer/>
+    <Footer />
   </div>
 </template>
