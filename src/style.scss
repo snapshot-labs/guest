@@ -40,7 +40,6 @@ h1 {
 
 h2 {
   @apply text-xl;
-  line-height: 1.2em;
 }
 
 h3 {
@@ -149,7 +148,7 @@ a,
   font-size: 17px;
   letter-spacing: 1px;
   color: white;
-  background-color: #7144FF;
+  background-color: #374aff;
 
   &:disabled {
     @apply bg-gray-300;
@@ -157,3 +156,24 @@ a,
     cursor: not-allowed;
   }
 }
+
+.footerContainer {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 100%;
+  z-index: 999;
+}
+
+.align {
+  display: flex;
+  flex-direction: row;
+  
+}
+

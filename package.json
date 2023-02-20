@@ -21,6 +21,7 @@
     "@walletconnect/client": "^1.7.1",
     "dayjs": "^1.10.8",
     "graphql": "^16.3.0",
+    "graphql-request": "^5.1.0",
     "graphql-tag": "^2.12.6",
     "scrollmonitor": "^1.2.9",
     "vue": "^3.2.31",

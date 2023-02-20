@@ -6,7 +6,7 @@ module.exports = {
         DEFAULT: 'var(--border-color)'
       },
       colors: {
-        primary: '#7144FF',
+        primary: '#374aff',
         'skin-border': 'var(--border-color)',
         'skin-text': 'var(--text-color)',
         'skin-link': 'var(--link-color)',

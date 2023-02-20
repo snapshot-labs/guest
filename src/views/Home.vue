@@ -1,57 +1,110 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { GraphQLClient } from 'graphql-request';
+
+
 
 const router = useRouter();
 const account = ref('');
 
-function handleSubmit() {
-  router.push({
-    name: 'account',
-    params: {
-      account: account.value
-    }
-  });
-}
+const endpoint = 'http://localhost:3000'; // Replace with your endpoint URL
+const client = new GraphQLClient(endpoint);
 
-const suggestions = [
-  'vitalik.eth',
-  'uniswap.eth',
-  'cdixon.eth',
-  'parishilton.eth'
-];
+    const accountAddress = ref('');
+    const accountTokens = ref([]);
+
+    async function handleSearch() {
+      console.log('test')
+      const query = `
+        query GetTokens($accountAddress: String!) {
+          accounttokens(where: { account: $accountAddress }) {
+            id
+            account
+            token {
+              id
+              decimals
+              name
+              symbol
+              totalSupply
+            }
+            balance
+            modified
+            tx
+          }
+        }
+      `;
+      const variables = { accountAddress: accountAddress.value };
+      const data = await client.request(query, variables);
+      accountTokens.value = data.accounttokens;
+
+    return { accountAddress, accountTokens, handleSearch };
+    }
+
 </script>
 
 <template>
   <div class="space-y-4">
     <div>
-      <h2 class="mb-2">Connect to web3 apps with any address</h2>
+      <div class="align">
+        <h2 class="mb-2">Search for Starknet token holders</h2>
+      </div>
       <p class="mb-2 max-w-2xl">
-        Guest make it easy to connect to a web3 app with an address of your
-        choice. The connection is read only, transaction requests are displayed
-        and can be used to populate execution on Snapshot.
+        With Checkpoint it is possible to retrieve and index, quickly and easily, any data from Starknet, whether it is global or from a particular smart contract.<br><br> Witness the power of Checkpoint now by retrieving token holdings from any Starknet holder. (See how it works <a href="https://github.com/snapshot-labs/token-api-checkpoint" style="color: #374aff;">here</a>)
       </p>
     </div>
-    <form @submit.prevent="handleSubmit" class="x-block">
-      <div class="mb-3">To get started type an address or an ENS name:</div>
-      <SIString
-        v-model="account"
-        :definition="{ title: '', examples: ['e.g. vitalik.eth'] }"
-      />
-      <UiButton type="submit" class="w-full">Next</UiButton>
-    </form>
-    <div class="x-block">
-      <div class="mb-3">Or log in as</div>
-      <router-link
-        :to="{ name: 'account', params: { account: suggestion } }"
-        class="flex"
-        v-for="(suggestion, i) in suggestions"
-        :key="i"
-      >
-        <Stamp :id="suggestion" :size="44" class="mb-3 mr-3" />
-        <div class="mt-1">{{ suggestion }}</div>
-      </router-link>
-    </div>
-    <Footer />
+        <form @submit.prevent="handleSearch" class="x-block">
+          <div class="mb-3">Search Starknet token holders:</div>
+          <SIString
+            v-model="accountAddress"
+            :definition="{ title: '', examples: ['Account address'] }"
+          />
+          <UiButton type="submit" class="w-full">Search</UiButton>
+        </form>
+      <ul class=" x-block">
+        <li class="token-item">
+          <span class="token-name">Name</span>
+          <span class="token-symbol">Symbol</span>
+          <span class="token-balance">Balance</span>
+        </li>
+        <li v-for="token in accountTokens" :key="token.id" class="token-item">
+          <span class="token-name">{{ token.token.name }}</span>
+          <span class="token-symbol">{{ token.token.symbol }}</span>
+          <span class="token-balance">{{ token.balance }}</span>
+        </li>
+      </ul>
   </div>
 </template>
+
+<style>
+  .token-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 27%;
+  }
+
+  .token-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .token-name {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .token-balance {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .token-symbol {
+    margin-right: 5px;
+  }
+</style>

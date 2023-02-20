@@ -5,9 +5,14 @@
       :to="{ name: 'home' }"
       class="fixed top-0 left-0 w-[64px] h-[64px] block z-10"
     >
-      <div class="ml-[20px] mt-3">
-        <Icon name="emoji" :size="28" />
-      </div>
+    <div class="ml-[20px] mt-3">
+      <img
+        src="./../assets/checkpoint.jpg"
+        alt="Emoji icon"
+        width="28"
+        height="28"
+      />
+    </div>
     </router-link>
     <div class="fixed border-r w-[32px] top-[32px] h-[32px] left-[32px]" />
   </div>
