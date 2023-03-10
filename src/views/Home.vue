@@ -8,7 +8,7 @@ import { GraphQLClient } from 'graphql-request';
 const router = useRouter();
 const account = ref('');
 
-const endpoint = 'http://localhost:3000'; // Replace with your endpoint URL
+const endpoint = 'https://token-api.checkpoint.fyi/'; // Replace with your endpoint URL
 const client = new GraphQLClient(endpoint);
 
     const accountAddress = ref('');
