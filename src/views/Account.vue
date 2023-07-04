@@ -2,15 +2,13 @@
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useWalletConnect } from '@/composables/useWalletConnect';
-import req from '@/helpers/request.json';
 import { shortenAddress } from '@/helpers/utils';
 import { useClipboard } from '@vueuse/core';
 
 const route = useRoute();
 const account = route.params.account;
 
-const { connect, logout, loading, logged, address, requests, parseCall } =
-  useWalletConnect();
+const { connect, logout, loading, logged, requests } = useWalletConnect();
 const uri = ref('');
 const copied = ref({});
 const { copy } = useClipboard();
@@ -29,12 +27,6 @@ async function handleLogout() {
   requests.value = [];
   logged.value = false;
 }
-
-/*
-parseCall(req).then(request => {
-  requests.value.push(request);
-});
-*/
 </script>
 
 <template>
